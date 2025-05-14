@@ -1,5 +1,5 @@
 import Airtable from 'airtable';
-import Feature, { type FeatureLike } from 'ol/Feature';
+import Feature from 'ol/Feature';
 import { Geometry, Point } from 'ol/geom';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
@@ -96,7 +96,7 @@ function renderMap(data: any[]) {
     }),
   });
 
-  let selected: FeatureLike | null = null;
+  let selected: any = null; // TODO any > FeatureLike | null ? 
 
   map.on("singleclick", function (e) {
     if (selected !== null) {
