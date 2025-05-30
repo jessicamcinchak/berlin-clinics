@@ -13,7 +13,7 @@ import Style from 'ol/style/Style';
 import View from 'ol/View';
 import { useEffect, useRef, useState, type Ref } from "react";
 
-import { PURPLE, YELLOW } from '../utils';
+import { PRIMARY, SECONDARY } from '../styles';
 import Record from './Record';
 
 const ClinicsMap = ({ data }: any) => {
@@ -57,7 +57,7 @@ const ClinicsMap = ({ data }: any) => {
       style: new Style({
         image: new Circle({
           radius: 10,
-          fill: new Fill({ color: PURPLE }),
+          fill: new Fill({ color: SECONDARY }),
           stroke: new Stroke({
             color: "#fff",
             width: 2,
@@ -89,9 +89,9 @@ const ClinicsMap = ({ data }: any) => {
         new Style({
           image: new Circle({
             radius: 12,
-            fill: new Fill({ color: PURPLE }),
+            fill: new Fill({ color: SECONDARY }),
             stroke: new Stroke({
-              color: YELLOW, // add a yellow highlight on select
+              color: PRIMARY, // add a PRIMARY highlight on select
               width: 5,
             }),
           }),
@@ -124,7 +124,7 @@ const ClinicsMap = ({ data }: any) => {
         className="map-container"
       >
       </div>
-      <div style={{ backgroundColor: YELLOW, height: "auto", overflowY: "scroll", width: "25%", padding: "1.5em" }}>
+      <div style={{ backgroundColor: PRIMARY, height: "auto", width: "25%", padding: "1.5em" }}>
         <h2><em>Doctors and clinics</em></h2>
         <p>Click on the map to learn more about each clinic offering care for FLINTA* people in Berlin.</p>
         {selectedFeature && <Record data={selectedFeature.getProperties()} />}

@@ -1,36 +1,17 @@
-import { PURPLE, YELLOW } from "../utils";
+import { PRIMARY, SECONDARY } from "../styles";
 
 const Record = ({ data }: Record<string, any>) => (
   <div style={{
-    margin: ".2em",
+    maxHeight: "80vh",
+    overflowY: "auto",
     padding: "1em",
-    backgroundColor: PURPLE,
-    color: YELLOW,
+    backgroundColor: SECONDARY,
+    color: PRIMARY,
   }}
   >
-    <div style={{ marginBottom: ".75em", borderBottom: `1px solid ${YELLOW}` }}>
+    <div style={{ marginBottom: ".5em", borderBottom: `1px solid ${PRIMARY}` }}>
       <h3 style={{ marginBottom: ".25em" }}>{data.name}</h3>
       {data.address && <p style={{ marginTop: 0 }}>{data.address}</p>}
-    </div>
-    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", margin: "1em 0" }}>
-      {data.tags?.length > 0 && (
-        data.tags.map((tag: string) => (
-          <div
-            id="chip"
-            key={tag}
-            style={{
-              backgroundColor: YELLOW,
-              color: PURPLE,
-              padding: "5px 25px",
-              borderRadius: "25px",
-              marginRight: ".75em",
-              fontWeight: 700,
-            }}
-          >
-            {tag.toUpperCase()}
-          </div>
-        ))
-      )}
     </div>
     <div>
       <dl>
@@ -61,13 +42,13 @@ const Record = ({ data }: Record<string, any>) => (
         {data.phone && (
           <>
             <dt>Phone</dt>
-            <dd><a href={`tel:${data.phone}`} style={{ color: YELLOW }}>{data.phone}</a></dd>
+            <dd><a href={`tel:${data.phone}`} style={{ color: PRIMARY }}>{data.phone}</a></dd>
           </>
         )}
         {data.website && data.bitly && (
           <>
             <dt>Website</dt>
-            <dd><a href={data.bitly} target="_blank" rel="noopener noreferrer" style={{ color: YELLOW }}>{data.website}</a></dd>
+            <dd><a href={data.bitly} target="_blank" rel="noopener noreferrer" style={{ color: PRIMARY }}>{data.website}</a></dd>
           </>
         )}
         <dt>Reports</dt>
