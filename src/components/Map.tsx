@@ -91,7 +91,7 @@ const ClinicsMap = ({ data }: any) => {
             radius: 12,
             fill: new Fill({ color: SECONDARY }),
             stroke: new Stroke({
-              color: PRIMARY, // add a PRIMARY highlight on select
+              color: PRIMARY, // add a highlight on select
               width: 5,
             }),
           }),
@@ -113,18 +113,24 @@ const ClinicsMap = ({ data }: any) => {
       });
     });
 
-    return () => map.setTarget(undefined);
+    const handleResize = () => setTimeout(() => map.updateSize(), 100);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      map.setTarget(undefined);
+      window.removeEventListener('resize', handleResize);
+    }
   }, [data]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", height: "100vh", width: "100%" }}>
+    <div className="container">
       <div
         ref={mapRef as unknown as Ref<HTMLDivElement>}
-        style={{ height: "auto", width: "75%" }}
-        className="map-container"
+        className="map"
       >
       </div>
-      <div style={{ backgroundColor: PRIMARY, height: "auto", width: "25%", padding: "1.5em" }}>
+      <div className="info-panel">
         <h2><em>Doctors and clinics</em></h2>
         <p>Click on the map to learn more about each clinic offering care for FLINTA* people in Berlin.</p>
         {selectedFeature && <Record data={selectedFeature.getProperties()} />}

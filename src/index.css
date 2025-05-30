@@ -48,3 +48,46 @@ dd {
   margin-bottom: 1em;
   padding-bottom: 5px;
 }
+
+/* Horizontal 75/25 layout on desktop */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+}
+
+.map {
+  height: auto;
+  width: 75%;
+}
+
+.info-panel {
+  background-color: #fffc1b;
+  height: auto;
+  width: 25%;
+  padding: 1.5em;
+}
+
+/* Stacked vertical layout on mobile */
+@media (max-width: 850px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+  }
+
+  .map {
+    width: auto;
+    height: 500px;
+  }
+
+  .info-panel {
+    background-color: #fffc1b;
+    height: min-content;
+    width: auto;
+    padding: 1.5em;
+  }
+}
