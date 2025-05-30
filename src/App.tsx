@@ -1,4 +1,4 @@
-import Airtable from 'airtable';
+import Airtable, { type FieldSet } from 'airtable';
 import { useEffect, useState } from 'react';
 
 import ClinicsMap from './components/Map';
@@ -15,8 +15,8 @@ function App() {
 
   useEffect(() => {
     // Fetch data from Airtable
-    const base = Airtable.base('appC6yPBtEwltJNG6');
-    const fetchedRecords: any[] = [];
+    const base = Airtable.base(import.meta.env.VITE_AIRTABLE_BASE_ID);
+    const fetchedRecords: FieldSet[] = [];
 
     base('Clinics & Doctors')
       .select({
