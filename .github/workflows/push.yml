@@ -41,6 +41,7 @@ jobs:
         run: pnpm run build
         env:
           VITE_AIRTABLE_PAT: ${{ secrets.AIRTABLE_PAT }}
+          VITE_AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
