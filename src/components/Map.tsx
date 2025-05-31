@@ -46,6 +46,7 @@ const ClinicsMap = ({ data }: any) => {
             website: d["Website FULL"],
             address: d.Address,
             kiez: d.Neighborhood,
+            reports: d["Website Reports Link"],
           }),
         );
       }

@@ -51,8 +51,12 @@ const Record = ({ data }: Record<string, any>) => (
             <dd><a href={data.bitly} target="_blank" rel="noopener noreferrer" style={{ color: PRIMARY }}>{data.website}</a></dd>
           </>
         )}
-        <dt>Reports</dt>
-        <dd>Coming soon!</dd>
+        {data.reports && (
+          <>
+            <dt>User reports</dt>
+            <dd><a href={data.reports} target="_blank" rel="noopener noreferrer" style={{ color: PRIMARY }}>Read more 👉</a></dd>
+          </>
+        )}
       </dl>
     </div>
   </div>
