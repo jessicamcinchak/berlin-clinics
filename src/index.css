@@ -63,6 +63,24 @@ dd {
   width: 75%;
 }
 
+.ol-control button {
+  background-color: #fffc1b;
+  border: 1px solid #fff;
+  height: 35px;
+  width: 35px;
+  color: #000;
+  font-weight: 500;
+  font-family: aktiv-grotesk, sans-serif;
+  font-size: 1.5em;
+  margin: 2px;
+}
+
+.ol-control button:hover {
+  color: #000;
+  border: 1px solid #fff;
+  box-shadow: none;
+}
+
 .info-panel {
   background-color: #fffc1b;
   height: auto;

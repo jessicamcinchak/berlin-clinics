@@ -5,7 +5,7 @@ import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import 'ol/ol.css';
-import { fromLonLat } from 'ol/proj';
+import { fromLonLat, transformExtent } from 'ol/proj';
 import OSM from 'ol/source/OSM';
 import VectorSource from 'ol/source/Vector';
 import { Circle, Fill, Stroke } from 'ol/style';
@@ -36,7 +36,7 @@ const ClinicsMap = ({ data }: any) => {
               ]),
             ),
             name: d.Name,
-            tags: d.Tags,
+            // tags: d.Tags,
             about: d.About,
             cost: d.Cost,
             appointment: d["How to get the appointment"],
@@ -45,7 +45,6 @@ const ClinicsMap = ({ data }: any) => {
             bitly: d.Website,
             website: d["Website FULL"],
             address: d.Address,
-            kiez: d.Neighborhood,
             reports: d["Website Reports Link"],
           }),
         );
@@ -77,6 +76,7 @@ const ClinicsMap = ({ data }: any) => {
       target: mapRef.current,
       view: new View({
         center: fromLonLat([13.405, 52.52]), // Berlin
+        extent: transformExtent([13.09, 52.33, 13.74, 52.68], 'EPSG:4326', 'EPSG:3857'), // Restrict panning to bbox
         zoom: 12,
         minZoom: 11,
       }),
